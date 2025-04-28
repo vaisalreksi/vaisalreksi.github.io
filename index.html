@@ -1,104 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
+<style>
+    * {
+        box-sizing: border-box;
+    }
 
-<head>
-  <meta charset="utf-8" />
-  <title>Aku sayang Rahmaaa 💖</title>
-  <meta name="description" content="@feelthisray - Script HTML by Feeldream.id">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    body {
+        font-family: Lato, sans-serif;
+        margin: 0;
+        padding: 1rem;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(20, 20, 20, 1);
+    }
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
-  <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script><link rel="stylesheet" href="https://htmlku.com/janganya/style.css">
+    img {
+        width: 100%;
+        display: block;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        transition: transform 1000ms;
+    }
 
-</head>
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        max-width: 100%;
+        width: 70rem;
+    }
 
-<body>
-	
-	<!-- Background Music -->
-    <audio loop src="https://feeldreams.github.io/audio/sempurna.mp3" id="linkmp3" class="sembunyi"></audio>
-  
-	<div class="overlay">
-    <div class="loading-message">Hai Sayangku yang bernama Rahma!<br>Tunggu dulu ya..</div>
-     <div id="loveIn" class="blocklove">
-        <a href="#" target="_blank" class="lovein"></a>
-        <p id="ket">Sentuh LOVEnya Cintaaaaahhhhh!</p>
-     </div>
-   </div>
-   
-   <div id="bodyblur">
-     <!-- Wallpaper --><img src="rahma.jpg" id="wallpaper"/>
-     <div id="thisblur"></div>
-   </div>
-   
-    <!-- Swiper Pesan Slide -->
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
+    figure {
+        margin: 0;
+        position: relative;
+        overflow: hidden;
+    }
 
-            <div class="swiper-slide">
-                <div id="stiker1" class="scale0 stiker">
-                    <img src="https://feeldreams.github.io/pusn.gif" />
-                </div>
-                <h1 id="teks1" class="scale0 quicksand" style="font-size: 20px;">Alooo Ayaaangku yang bernama Rahmaaaaa 🫢<br><br> >>>>
-                </h1>
-            </div>
+    figure::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200%;
+        height: 200%;
+        background: rgba(0, 0, 0, 0.5);
+        transform-origin: center;
+        opacity: 0;
+        transform: scale(2);
+        transition: opacity 300ms;
+    }
 
-            <div class="swiper-slide">
-                <div id="stiker2" class="scale0 stiker">
-                    <img src="https://feeldreams.github.io/hearthappy.gif" />
-                </div>
-                <h1 id="teks2" class="scale0 quicksand" style="font-size: 19px;">Honey Masih Ngambek? 🫣</h1>
-                <div id="Tombol" style="opacity:0;transform: scale(0)">
-                    <a id="By" onClick="swiper.slideNext();">Udah Ngga</a>
-                    <a id="Bn" onClick="btn='Bn';fungsibaru(btn)">Masih</a>
-                </div>
-                <img id="stikerTolak" class="sembunyi" src="https://feeldreams.github.io/cilukba.gif"/>
-                <p id="teksTolak" class="sembunyi">Ciee ngambekan gitu doang 😋😝</p>
-                
-                <img id="stikerTolak2" class="sembunyi" src="https://feeldreams.github.io/weee.gif"/>
-                <p id="teksTolak2" class="sembunyi">Nanti keriputan looh 🫣🤣</p>
-            </div>
+    figcaption {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        place-items: center;
+        text-align: center;
+        padding: 1rem;
+        color: white;
+        font-size: 1.2rem;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 600ms, transform 600ms;
+    }
 
-            <div class="swiper-slide">
-                <div id="stiker3" class="scale0 stiker" style="margin-top:50px">
-                    <img id="stikerAkhir1" src="https://feeldreams.github.io/cilukba.gif" />
-                    <img id="stikerAkhir2" class="sembunyi" src="https://feeldreams.github.io/pandapanah.gif" />
-                    <img id="stikerAkhir3" class="sembunyi" src="https://feeldreams.github.io/emawh.gif" />
-                </div>
-                <div id="scroll-container" class="blocktext">
-  <link rel="icon" type="image/svg+xml" href="https://feeldreams.github.io/main-icon.png"> 
-                    <h1 id="teks3" class="scale0 quicksand" style="font-size: 17px;font-weight:400"><b style="font-size: 19px;">Yeaaayy! 🥳</b><br><br>Maaciiiww udah ga ngambek 😋<br> Nanti dikasih boba 💖<br><b>Tunggu yaaa 🫶</b></b></h1>
-                    <h1 id="teksTambahan" class="sembunyi"><span id="teksLove">I Love You</span></h1>
-                    <!-- Emoji Akhir -->
-                    <script>const loveEmojis = ['💖']</script>
-                </div>
-            </div>
+    a:is(:hover, :focus) figure::after {
+        opacity: 1;
+    }
 
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-    </div>
-    
-    <!-- Gelembung -->
-    <div id="container">
-        <div class="wrapper">
-            <div class="box">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-    </div>
+    a:is(:hover, :focus) figcaption {
+        opacity: 1;
+        transition: opacity 600ms;
+    }
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://htmlku.com/janganya/script.js"></script>
-</body>
-</html>
+    @media (prefers-reduced-motion: no-preference) {
+        figcaption {
+            transform: translate3d(0, 2rem, 0);
+        }
+        
+        figure::after {
+            border-radius: 50%;
+            opacity: 1;
+            transform: scale(0);
+            transition: transform 900ms;
+        }
+        
+        a:is(:hover, :focus) figure::after {
+            transform: scale(2.5);
+        }
+
+        a:is(:hover, :focus) figcaption {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            transition: opacity 600ms 400ms, transform 600ms 400ms;
+        }
+
+        a:is(:hover, :focus) img {
+            transform: scale(1.2);
+        }
+    }
+</style>
+<ul>
+	<li>
+		<a href="">
+			<figure>
+				<img src='https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzNDA0OTI3Nw&ixlib=rb-1.2.1&q=80&w=400' alt='Volcano and lava field against a stormy sky'>
+				<figcaption>Mountains and volcanos</figcaption>
+			</figure>
+		</a>
+	</li>
+	<li>
+		<a href="">
+			<figure>
+				<img src='https://images.unsplash.com/photo-1633621533308-8760aefb5521?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzNDA1MjAyMQ&ixlib=rb-1.2.1&q=80&w=400' alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
+				<figcaption>Adventure getaways</figcaption>
+			</figure>
+		</a>
+	</li>
+	<li>
+		<a href="">
+			<figure>
+				<img src='https://images.unsplash.com/photo-1633635146842-12d386e64058?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzNDA1MjA5OA&ixlib=rb-1.2.1&q=80&w=400' alt='Person standing alone in a misty forest'>
+				<figcaption>Forest escapes</figcaption>
+			</figure>
+		</a>
+	</li>
+	<li>
+		<a href="">
+			<figure>
+				<img src='https://images.unsplash.com/photo-1568444438385-ece31a33ce78?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzNDA1MjA5OA&ixlib=rb-1.2.1&q=80&w=400' alt='Person hiking on a trail through mountains while taking a photo with phone'>
+				<figcaption>Hiking trails</figcaption>
+			</figure>
+		</a>
+	</li>
+	<li>
+		<a href="">
+			<figure>
+				<img src='https://images.unsplash.com/photo-1633515257379-5fda985bd57a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzNDA1MjA5OA&ixlib=rb-1.2.1&q=80&w=400' alt='Street scene with person walking and others on motorbikes, all wearing masks'>
+				<figcaption>Street scenes</figcaption>
+			</figure>
+		</a>
+	</li>
+	<li>
+		<a href="">
+			<figure>
+				<img src='https://images.unsplash.com/photo-1633209931146-260ce0d16e22?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYzNDA1MjA5OA&ixlib=rb-1.2.1&q=80&w=400' alt='Fashionable-looking girl with blond hair and pink sunglasses'>
+				<figcaption>Trending</figcaption>
+			</figure>
+		</a>
+	</li>
+</ul>
